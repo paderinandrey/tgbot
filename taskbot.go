@@ -16,7 +16,7 @@ import (
 
 var (
 	BotToken   = "1720733611:AAFCNZUkTIiDB-ZN5jHZlTr2ZCW6sOqY1g4"
-	WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
+	WebhookURL = "https://e7bdbc6df633.ngrok.io"
 	// WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
 )
 
@@ -173,6 +173,13 @@ func startTaskBot(ctx context.Context) error {
 	tasks := newTasksRepo()
 
 	bot, err := tgbotapi.NewBotAPI(BotToken)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Authorized on account %s\n", bot.Self.UserName)
+
+	_, err = bot.SetWebhook(tgbotapi.NewWebhook(WebhookURL))
 	if err != nil {
 		return err
 	}
