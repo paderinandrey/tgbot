@@ -15,7 +15,7 @@ import (
 
 var (
 	BotToken   = "1720733611:AAFCNZUkTIiDB-ZN5jHZlTr2ZCW6sOqY1g4"
-	WebhookURL = "tasks-golang-course-bot.herokuapp.com"
+	WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
 	// WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
 )
 
