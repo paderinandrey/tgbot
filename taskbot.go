@@ -15,9 +15,9 @@ import (
 )
 
 var (
-	BotToken   = "1720733611:AAFCNZUkTIiDB-ZN5jHZlTr2ZCW6sOqY1g4"
-	WebhookURL = "https://e7bdbc6df633.ngrok.io"
-	// WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
+	BotToken = "1720733611:AAFCNZUkTIiDB-ZN5jHZlTr2ZCW6sOqY1g4"
+	// WebhookURL = "https://e7bdbc6df633.ngrok.io"
+	WebhookURL = "https://tasks-golang-course-bot.herokuapp.com"
 )
 
 type User struct {
