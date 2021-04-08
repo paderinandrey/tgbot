@@ -187,7 +187,7 @@ func startTaskBot(ctx context.Context) error {
 	}()
 
 	go func() {
-		log.Println("start listen :8081")
+		log.Println("start listen" + GetPort())
 		if err := srv.ListenAndServe(); err != nil {
 			log.Fatalf("listenAndServe failed: %v", err)
 		}
