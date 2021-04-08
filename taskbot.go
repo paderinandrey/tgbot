@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"sync"
@@ -158,6 +159,16 @@ func buildTextFromTemplate(tpl string, data interface{}) (string, error) {
 	return strings.TrimSpace(builder.String()), nil
 }
 
+func GetPort() string {
+	var port = os.Getenv("PORT")
+	// Set a default port if there is nothing in the environment
+	if port == "" {
+		port = "8081"
+		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+	}
+	return ":" + port
+}
+
 func startTaskBot(ctx context.Context) error {
 	tasks := newTasksRepo()
 
@@ -168,7 +179,7 @@ func startTaskBot(ctx context.Context) error {
 
 	updates := bot.ListenForWebhook("/")
 
-	srv := &http.Server{Addr: ":8081"}
+	srv := &http.Server{Addr: GetPort()}
 	go func() {
 		<-ctx.Done()
 		fmt.Println("Shutting down the HTTP server...")
